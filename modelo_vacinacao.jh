@@ -1,0 +1,69 @@
+
+entity Pais{
+ nome String
+ sigla String
+}
+
+entity Fabricante{
+	nome String
+    criado ZonedDateTime
+}
+entity Vacina{
+	nome String
+    criado ZonedDateTime
+}
+
+entity Doenca{
+	nome String
+    criado ZonedDateTime
+    dataPrimeiroCaso LocalDate
+    localPrimeiroCaso LocalDate
+}
+entity Pessoa{
+	nome String
+    dataNascimento LocalDate
+    }
+entity VacinacaoPessoa{
+	quando LocalDate
+    cns String
+    codigoProfissinal String
+    }
+
+
+
+
+relationship OneToOne {
+	Department{location} to Location
+}
+
+relationship ManyToMany {
+	
+  Fabricante{vacinas(nome)} to Vacina{fabricantes(nome)}
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Employee to Job{employee}
+	/**
+	* A relationship
+	*/
+	Department to
+	/**
+	* Another side of the same relationship
+	*/
+	Employee{department}
+}
+
+relationship ManyToOne {
+	VacinacaoPessoa{pessoa(nome)} to Pessoa
+    VacinacaoPessoa{vacina(nome)} to Vacina
+    VacinacaoPessoa{fabricante(nome)} to Fabricante
+    
+    Vacina{doenca(nome)} to Doenca
+    
+    Fabricante{pais(nome)} to Pais
+    
+    Doenca{paisPrimeiroCaso(nome)} to Pais
+}
+
+
