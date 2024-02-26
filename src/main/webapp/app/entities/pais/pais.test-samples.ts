@@ -1,19 +1,18 @@
 import { IPais, NewPais } from './pais.model';
 
 export const sampleWithRequiredData: IPais = {
-  id: 10215,
+  id: 31549,
 };
 
 export const sampleWithPartialData: IPais = {
-  id: 1070,
-  nome: 'as',
-  sigla: 'triumphantly',
+  id: 13639,
+  nome: 'vitiate',
 };
 
 export const sampleWithFullData: IPais = {
-  id: 24018,
-  nome: 'plague smooth',
-  sigla: 'times evade',
+  id: 4904,
+  nome: 'be duh strangle',
+  sigla: 'stealthily',
 };
 
 export const sampleWithNewData: NewPais = {

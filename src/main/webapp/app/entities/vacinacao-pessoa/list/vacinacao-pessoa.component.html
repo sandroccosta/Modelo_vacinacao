@@ -1,11 +1,11 @@
 <div>
   <h2 id="page-heading" data-cy="VacinacaoPessoaHeading">
-    <span jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.home.title">Vacinacao Pessoas</span>
+    <span>Vacinacao Pessoas</span>
 
     <div class="d-flex justify-content-end">
       <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
         <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
-        <span jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.home.refreshListLabel">Atualizar lista</span>
+        <span>Atualizar lista</span>
       </button>
 
       <button
@@ -15,7 +15,7 @@
         [routerLink]="['/vacinacao-pessoa/new']"
       >
         <fa-icon icon="plus"></fa-icon>
-        <span jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.home.createLabel">Criar novo Vacinacao Pessoa</span>
+        <span>Criar novo Vacinacao Pessoa</span>
       </button>
     </div>
   </h2>
@@ -26,7 +26,7 @@
 
   @if (vacinacaoPessoas?.length === 0) {
     <div class="alert alert-warning" id="no-result">
-      <span jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.home.notFound">Nenhum Vacinacao Pessoa encontrado</span>
+      <span>Nenhum Vacinacao Pessoa encontrado</span>
     </div>
   }
 
@@ -37,47 +37,47 @@
           <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
             <th scope="col" jhiSortBy="id">
               <div class="d-flex">
-                <span jhiTranslate="global.field.id">Código</span>
+                <span>Código</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
             <th scope="col" jhiSortBy="quando">
               <div class="d-flex">
-                <span jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.quando">Quando</span>
+                <span>Quando</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
             <th scope="col" jhiSortBy="cns">
               <div class="d-flex">
-                <span jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.cns">Cns</span>
+                <span>Cns</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
             <th scope="col" jhiSortBy="codigoProfissinal">
               <div class="d-flex">
-                <span jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.codigoProfissinal">Codigo Profissinal</span>
+                <span>Codigo Profissinal</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
             <th scope="col" jhiSortBy="pessoa.nome">
               <div class="d-flex">
-                <span jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.pessoa">Pessoa</span>
+                <span>Pessoa</span>
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
             <th scope="col" jhiSortBy="vacina.nome">
               <div class="d-flex">
-                <span jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.vacina">Vacina</span>
+                <span>Vacina</span>
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
             <th scope="col" jhiSortBy="fabricante.nome">
               <div class="d-flex">
-                <span jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.fabricante">Fabricante</span>
+                <span>Fabricante</span>
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
@@ -122,7 +122,7 @@
                     data-cy="entityDetailsButton"
                   >
                     <fa-icon icon="eye"></fa-icon>
-                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Visualizar</span>
+                    <span class="d-none d-md-inline">Visualizar</span>
                   </a>
 
                   <a
@@ -131,12 +131,12 @@
                     data-cy="entityEditButton"
                   >
                     <fa-icon icon="pencil-alt"></fa-icon>
-                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editar</span>
+                    <span class="d-none d-md-inline">Editar</span>
                   </a>
 
                   <button type="submit" (click)="delete(vacinacaoPessoa)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
                     <fa-icon icon="times"></fa-icon>
-                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Excluir</span>
+                    <span class="d-none d-md-inline">Excluir</span>
                   </button>
                 </div>
               </td>

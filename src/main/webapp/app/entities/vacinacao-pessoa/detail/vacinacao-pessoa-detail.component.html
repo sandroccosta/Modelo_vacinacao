@@ -2,9 +2,7 @@
   <div class="col-8">
     @if (vacinacaoPessoa) {
       <div>
-        <h2 data-cy="vacinacaoPessoaDetailsHeading">
-          <span jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.detail.title">Vacinacao Pessoa</span>
-        </h2>
+        <h2 data-cy="vacinacaoPessoaDetailsHeading"><span>Vacinacao Pessoa</span></h2>
 
         <hr />
 
@@ -13,23 +11,23 @@
         <jhi-alert></jhi-alert>
 
         <dl class="row-md jh-entity-details">
-          <dt><span jhiTranslate="global.field.id">Código</span></dt>
+          <dt><span>Código</span></dt>
           <dd>
             <span>{{ vacinacaoPessoa.id }}</span>
           </dd>
-          <dt><span jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.quando">Quando</span></dt>
+          <dt><span>Quando</span></dt>
           <dd>
             <span>{{ vacinacaoPessoa.quando | formatMediumDate }}</span>
           </dd>
-          <dt><span jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.cns">Cns</span></dt>
+          <dt><span>Cns</span></dt>
           <dd>
             <span>{{ vacinacaoPessoa.cns }}</span>
           </dd>
-          <dt><span jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.codigoProfissinal">Codigo Profissinal</span></dt>
+          <dt><span>Codigo Profissinal</span></dt>
           <dd>
             <span>{{ vacinacaoPessoa.codigoProfissinal }}</span>
           </dd>
-          <dt><span jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.pessoa">Pessoa</span></dt>
+          <dt><span>Pessoa</span></dt>
           <dd>
             @if (vacinacaoPessoa.pessoa) {
               <div>
@@ -37,7 +35,7 @@
               </div>
             }
           </dd>
-          <dt><span jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.vacina">Vacina</span></dt>
+          <dt><span>Vacina</span></dt>
           <dd>
             @if (vacinacaoPessoa.vacina) {
               <div>
@@ -45,7 +43,7 @@
               </div>
             }
           </dd>
-          <dt><span jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.fabricante">Fabricante</span></dt>
+          <dt><span>Fabricante</span></dt>
           <dd>
             @if (vacinacaoPessoa.fabricante) {
               <div>
@@ -56,11 +54,11 @@
         </dl>
 
         <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
-          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Voltar</span>
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Voltar</span>
         </button>
 
         <button type="button" [routerLink]="['/vacinacao-pessoa', vacinacaoPessoa.id, 'edit']" class="btn btn-primary">
-          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Editar</span>
         </button>
       </div>
     }

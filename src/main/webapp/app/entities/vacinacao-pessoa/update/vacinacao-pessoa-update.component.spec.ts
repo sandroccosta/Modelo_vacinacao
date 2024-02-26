@@ -58,10 +58,10 @@ describe('VacinacaoPessoa Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call Pessoa query and add missing value', () => {
       const vacinacaoPessoa: IVacinacaoPessoa = { id: 456 };
-      const pessoa: IPessoa = { id: 2388 };
+      const pessoa: IPessoa = { id: 1782 };
       vacinacaoPessoa.pessoa = pessoa;
 
-      const pessoaCollection: IPessoa[] = [{ id: 20534 }];
+      const pessoaCollection: IPessoa[] = [{ id: 14313 }];
       jest.spyOn(pessoaService, 'query').mockReturnValue(of(new HttpResponse({ body: pessoaCollection })));
       const additionalPessoas = [pessoa];
       const expectedCollection: IPessoa[] = [...additionalPessoas, ...pessoaCollection];
@@ -80,10 +80,10 @@ describe('VacinacaoPessoa Management Update Component', () => {
 
     it('Should call Vacina query and add missing value', () => {
       const vacinacaoPessoa: IVacinacaoPessoa = { id: 456 };
-      const vacina: IVacina = { id: 4570 };
+      const vacina: IVacina = { id: 13307 };
       vacinacaoPessoa.vacina = vacina;
 
-      const vacinaCollection: IVacina[] = [{ id: 8589 }];
+      const vacinaCollection: IVacina[] = [{ id: 16975 }];
       jest.spyOn(vacinaService, 'query').mockReturnValue(of(new HttpResponse({ body: vacinaCollection })));
       const additionalVacinas = [vacina];
       const expectedCollection: IVacina[] = [...additionalVacinas, ...vacinaCollection];
@@ -102,10 +102,10 @@ describe('VacinacaoPessoa Management Update Component', () => {
 
     it('Should call Fabricante query and add missing value', () => {
       const vacinacaoPessoa: IVacinacaoPessoa = { id: 456 };
-      const fabricante: IFabricante = { id: 7542 };
+      const fabricante: IFabricante = { id: 26493 };
       vacinacaoPessoa.fabricante = fabricante;
 
-      const fabricanteCollection: IFabricante[] = [{ id: 25351 }];
+      const fabricanteCollection: IFabricante[] = [{ id: 11370 }];
       jest.spyOn(fabricanteService, 'query').mockReturnValue(of(new HttpResponse({ body: fabricanteCollection })));
       const additionalFabricantes = [fabricante];
       const expectedCollection: IFabricante[] = [...additionalFabricantes, ...fabricanteCollection];
@@ -124,11 +124,11 @@ describe('VacinacaoPessoa Management Update Component', () => {
 
     it('Should update editForm', () => {
       const vacinacaoPessoa: IVacinacaoPessoa = { id: 456 };
-      const pessoa: IPessoa = { id: 24093 };
+      const pessoa: IPessoa = { id: 2157 };
       vacinacaoPessoa.pessoa = pessoa;
-      const vacina: IVacina = { id: 2506 };
+      const vacina: IVacina = { id: 17141 };
       vacinacaoPessoa.vacina = vacina;
-      const fabricante: IFabricante = { id: 13263 };
+      const fabricante: IFabricante = { id: 25529 };
       vacinacaoPessoa.fabricante = fabricante;
 
       activatedRoute.data = of({ vacinacaoPessoa });

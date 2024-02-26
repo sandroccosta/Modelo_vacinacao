@@ -3,19 +3,18 @@ import dayjs from 'dayjs/esm';
 import { IVacina, NewVacina } from './vacina.model';
 
 export const sampleWithRequiredData: IVacina = {
-  id: 19653,
+  id: 29074,
 };
 
 export const sampleWithPartialData: IVacina = {
-  id: 27985,
-  nome: 'bumper royal',
-  criado: dayjs('2024-02-26T04:17'),
+  id: 25404,
+  criado: dayjs('2024-02-26T04:03'),
 };
 
 export const sampleWithFullData: IVacina = {
-  id: 19342,
-  nome: 'brr',
-  criado: dayjs('2024-02-26T09:37'),
+  id: 23222,
+  nome: 'curtsy swiftly',
+  criado: dayjs('2024-02-26T05:40'),
 };
 
 export const sampleWithNewData: NewVacina = {

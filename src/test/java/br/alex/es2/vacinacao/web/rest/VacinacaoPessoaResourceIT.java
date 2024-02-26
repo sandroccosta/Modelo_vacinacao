@@ -300,6 +300,8 @@ class VacinacaoPessoaResourceIT {
         VacinacaoPessoa partialUpdatedVacinacaoPessoa = new VacinacaoPessoa();
         partialUpdatedVacinacaoPessoa.setId(vacinacaoPessoa.getId());
 
+        partialUpdatedVacinacaoPessoa.quando(UPDATED_QUANDO).cns(UPDATED_CNS);
+
         restVacinacaoPessoaMockMvc
             .perform(
                 patch(ENTITY_API_URL_ID, partialUpdatedVacinacaoPessoa.getId())
@@ -312,8 +314,8 @@ class VacinacaoPessoaResourceIT {
         List<VacinacaoPessoa> vacinacaoPessoaList = vacinacaoPessoaRepository.findAll();
         assertThat(vacinacaoPessoaList).hasSize(databaseSizeBeforeUpdate);
         VacinacaoPessoa testVacinacaoPessoa = vacinacaoPessoaList.get(vacinacaoPessoaList.size() - 1);
-        assertThat(testVacinacaoPessoa.getQuando()).isEqualTo(DEFAULT_QUANDO);
-        assertThat(testVacinacaoPessoa.getCns()).isEqualTo(DEFAULT_CNS);
+        assertThat(testVacinacaoPessoa.getQuando()).isEqualTo(UPDATED_QUANDO);
+        assertThat(testVacinacaoPessoa.getCns()).isEqualTo(UPDATED_CNS);
         assertThat(testVacinacaoPessoa.getCodigoProfissinal()).isEqualTo(DEFAULT_CODIGO_PROFISSINAL);
     }
 

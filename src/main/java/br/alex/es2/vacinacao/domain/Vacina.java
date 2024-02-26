@@ -6,15 +6,12 @@ import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.HashSet;
 import java.util.Set;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * A Vacina.
  */
 @Entity
 @Table(name = "vacina")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @SuppressWarnings("common-java:DuplicatedBlocks")
 public class Vacina implements Serializable {
 
@@ -37,7 +34,6 @@ public class Vacina implements Serializable {
     private Doenca doenca;
 
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "vacinas")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "pais", "vacinas" }, allowSetters = true)
     private Set<Fabricante> fabricantes = new HashSet<>();
 

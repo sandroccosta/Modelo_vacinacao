@@ -1,29 +1,23 @@
 @if (vacina) {
   <form name="deleteForm" (ngSubmit)="confirmDelete(vacina.id!)">
     <div class="modal-header">
-      <h4 class="modal-title" data-cy="vacinaDeleteDialogHeading" jhiTranslate="entity.delete.title">Confirme a exclusão</h4>
+      <h4 class="modal-title" data-cy="vacinaDeleteDialogHeading">Confirme a exclusão</h4>
 
       <button type="button" class="btn-close" data-dismiss="modal" aria-hidden="true" (click)="cancel()">&times;</button>
     </div>
 
     <div class="modal-body">
       <jhi-alert-error></jhi-alert-error>
-      <p
-        id="jhi-delete-vacina-heading"
-        jhiTranslate="exemploModeloVacinacaoApp.vacina.delete.question"
-        [translateValues]="{ id: vacina.id }"
-      >
-        Tem certeza de que deseja excluir Vacina {{ vacina.id }}?
-      </p>
+      <p id="jhi-delete-vacina-heading">Tem certeza de que deseja excluir Vacina {{ vacina.id }}?</p>
     </div>
 
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancel()">
-        <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancelar</span>
+        <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancelar</span>
       </button>
 
       <button id="jhi-confirm-delete-vacina" data-cy="entityConfirmDeleteButton" type="submit" class="btn btn-danger">
-        <fa-icon icon="times"></fa-icon>&nbsp;<span jhiTranslate="entity.action.delete">Excluir</span>
+        <fa-icon icon="times"></fa-icon>&nbsp;<span>Excluir</span>
       </button>
     </div>
   </form>

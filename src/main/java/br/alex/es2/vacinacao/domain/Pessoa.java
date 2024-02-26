@@ -3,15 +3,12 @@ package br.alex.es2.vacinacao.domain;
 import jakarta.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * A Pessoa.
  */
 @Entity
 @Table(name = "pessoa")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @SuppressWarnings("common-java:DuplicatedBlocks")
 public class Pessoa implements Serializable {
 

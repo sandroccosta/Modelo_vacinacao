@@ -1,8 +1,8 @@
 @if (allBeans) {
   <div>
-    <h2 id="configuration-page-heading" jhiTranslate="configuration.title" data-cy="configurationPageHeading">Configuração</h2>
+    <h2 id="configuration-page-heading" data-cy="configurationPageHeading">Configuração</h2>
 
-    <span jhiTranslate="configuration.filter">Filtro (por prefixo)</span>
+    <span>Filtro (por prefixo)</span>
     <input type="text" [(ngModel)]="beansFilter" (ngModelChange)="filterAndSortBeans()" class="form-control" />
 
     <h3 id="spring-configuration">Spring configuration</h3>
@@ -10,10 +10,8 @@
     <table class="table table-striped table-bordered table-responsive d-table" aria-describedby="spring-configuration">
       <thead>
         <tr jhiSort predicate="prefix" [(ascending)]="beansAscending" (sortChange)="filterAndSortBeans()">
-          <th jhiSortBy="prefix" scope="col" class="w-40">
-            <span jhiTranslate="configuration.table.prefix">Prefixo</span> <fa-icon icon="sort"></fa-icon>
-          </th>
-          <th scope="col" class="w-60"><span jhiTranslate="configuration.table.properties">Propriedades</span></th>
+          <th jhiSortBy="prefix" scope="col" class="w-40"><span>Prefixo</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" class="w-60"><span>Propriedades</span></th>
         </tr>
       </thead>
       <tbody>

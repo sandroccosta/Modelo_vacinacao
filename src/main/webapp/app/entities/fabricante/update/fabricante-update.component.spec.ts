@@ -54,10 +54,10 @@ describe('Fabricante Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call Pais query and add missing value', () => {
       const fabricante: IFabricante = { id: 456 };
-      const pais: IPais = { id: 13742 };
+      const pais: IPais = { id: 9476 };
       fabricante.pais = pais;
 
-      const paisCollection: IPais[] = [{ id: 28670 }];
+      const paisCollection: IPais[] = [{ id: 24864 }];
       jest.spyOn(paisService, 'query').mockReturnValue(of(new HttpResponse({ body: paisCollection })));
       const additionalPais = [pais];
       const expectedCollection: IPais[] = [...additionalPais, ...paisCollection];
@@ -73,10 +73,10 @@ describe('Fabricante Management Update Component', () => {
 
     it('Should call Vacina query and add missing value', () => {
       const fabricante: IFabricante = { id: 456 };
-      const vacinas: IVacina[] = [{ id: 20373 }];
+      const vacinas: IVacina[] = [{ id: 8734 }];
       fabricante.vacinas = vacinas;
 
-      const vacinaCollection: IVacina[] = [{ id: 3762 }];
+      const vacinaCollection: IVacina[] = [{ id: 7724 }];
       jest.spyOn(vacinaService, 'query').mockReturnValue(of(new HttpResponse({ body: vacinaCollection })));
       const additionalVacinas = [...vacinas];
       const expectedCollection: IVacina[] = [...additionalVacinas, ...vacinaCollection];
@@ -95,9 +95,9 @@ describe('Fabricante Management Update Component', () => {
 
     it('Should update editForm', () => {
       const fabricante: IFabricante = { id: 456 };
-      const pais: IPais = { id: 21652 };
+      const pais: IPais = { id: 528 };
       fabricante.pais = pais;
-      const vacinas: IVacina = { id: 15085 };
+      const vacinas: IVacina = { id: 13906 };
       fabricante.vacinas = [vacinas];
 
       activatedRoute.data = of({ fabricante });

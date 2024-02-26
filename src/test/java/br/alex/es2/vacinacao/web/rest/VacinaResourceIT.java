@@ -284,7 +284,7 @@ class VacinaResourceIT {
         Vacina partialUpdatedVacina = new Vacina();
         partialUpdatedVacina.setId(vacina.getId());
 
-        partialUpdatedVacina.nome(UPDATED_NOME).criado(UPDATED_CRIADO);
+        partialUpdatedVacina.nome(UPDATED_NOME);
 
         restVacinaMockMvc
             .perform(
@@ -299,7 +299,7 @@ class VacinaResourceIT {
         assertThat(vacinaList).hasSize(databaseSizeBeforeUpdate);
         Vacina testVacina = vacinaList.get(vacinaList.size() - 1);
         assertThat(testVacina.getNome()).isEqualTo(UPDATED_NOME);
-        assertThat(testVacina.getCriado()).isEqualTo(UPDATED_CRIADO);
+        assertThat(testVacina.getCriado()).isEqualTo(DEFAULT_CRIADO);
     }
 
     @Test

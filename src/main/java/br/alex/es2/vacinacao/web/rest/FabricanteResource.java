@@ -54,7 +54,7 @@ public class FabricanteResource {
         Fabricante result = fabricanteRepository.save(fabricante);
         return ResponseEntity
             .created(new URI("/api/fabricantes/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
 
@@ -88,7 +88,7 @@ public class FabricanteResource {
         Fabricante result = fabricanteRepository.save(fabricante);
         return ResponseEntity
             .ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, fabricante.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, fabricante.getId().toString()))
             .body(result);
     }
 
@@ -136,7 +136,7 @@ public class FabricanteResource {
 
         return ResponseUtil.wrapOrNotFound(
             result,
-            HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, fabricante.getId().toString())
+            HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, fabricante.getId().toString())
         );
     }
 
@@ -183,7 +183,7 @@ public class FabricanteResource {
         fabricanteRepository.deleteById(id);
         return ResponseEntity
             .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString()))
             .build();
     }
 }

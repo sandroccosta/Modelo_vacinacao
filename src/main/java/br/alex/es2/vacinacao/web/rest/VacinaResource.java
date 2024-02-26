@@ -54,7 +54,7 @@ public class VacinaResource {
         Vacina result = vacinaRepository.save(vacina);
         return ResponseEntity
             .created(new URI("/api/vacinas/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
 
@@ -86,7 +86,7 @@ public class VacinaResource {
         Vacina result = vacinaRepository.save(vacina);
         return ResponseEntity
             .ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, vacina.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, vacina.getId().toString()))
             .body(result);
     }
 
@@ -134,7 +134,7 @@ public class VacinaResource {
 
         return ResponseUtil.wrapOrNotFound(
             result,
-            HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, vacina.getId().toString())
+            HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, vacina.getId().toString())
         );
     }
 
@@ -179,7 +179,7 @@ public class VacinaResource {
         vacinaRepository.deleteById(id);
         return ResponseEntity
             .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString()))
             .build();
     }
 }

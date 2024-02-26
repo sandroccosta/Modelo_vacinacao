@@ -311,7 +311,7 @@ class DoencaResourceIT {
         Doenca partialUpdatedDoenca = new Doenca();
         partialUpdatedDoenca.setId(doenca.getId());
 
-        partialUpdatedDoenca.nome(UPDATED_NOME).dataPrimeiroCaso(UPDATED_DATA_PRIMEIRO_CASO).localPrimeiroCaso(UPDATED_LOCAL_PRIMEIRO_CASO);
+        partialUpdatedDoenca.nome(UPDATED_NOME).criado(UPDATED_CRIADO);
 
         restDoencaMockMvc
             .perform(
@@ -326,9 +326,9 @@ class DoencaResourceIT {
         assertThat(doencaList).hasSize(databaseSizeBeforeUpdate);
         Doenca testDoenca = doencaList.get(doencaList.size() - 1);
         assertThat(testDoenca.getNome()).isEqualTo(UPDATED_NOME);
-        assertThat(testDoenca.getCriado()).isEqualTo(DEFAULT_CRIADO);
-        assertThat(testDoenca.getDataPrimeiroCaso()).isEqualTo(UPDATED_DATA_PRIMEIRO_CASO);
-        assertThat(testDoenca.getLocalPrimeiroCaso()).isEqualTo(UPDATED_LOCAL_PRIMEIRO_CASO);
+        assertThat(testDoenca.getCriado()).isEqualTo(UPDATED_CRIADO);
+        assertThat(testDoenca.getDataPrimeiroCaso()).isEqualTo(DEFAULT_DATA_PRIMEIRO_CASO);
+        assertThat(testDoenca.getLocalPrimeiroCaso()).isEqualTo(DEFAULT_LOCAL_PRIMEIRO_CASO);
     }
 
     @Test

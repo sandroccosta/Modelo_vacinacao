@@ -1,31 +1,25 @@
 <div class="d-flex justify-content-center">
   <div class="col-8">
     <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-      <h2
-        id="jhi-doenca-heading"
-        data-cy="DoencaCreateUpdateHeading"
-        jhiTranslate="exemploModeloVacinacaoApp.doenca.home.createOrEditLabel"
-      >
-        Criar ou editar Doenca
-      </h2>
+      <h2 id="jhi-doenca-heading" data-cy="DoencaCreateUpdateHeading">Criar ou editar Doenca</h2>
 
       <div>
         <jhi-alert-error></jhi-alert-error>
 
         @if (editForm.controls.id.value !== null) {
           <div class="mb-3">
-            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <label class="form-label" for="field_id">ID</label>
             <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
           </div>
         }
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="exemploModeloVacinacaoApp.doenca.nome" for="field_nome">Nome</label>
+          <label class="form-label" for="field_nome">Nome</label>
           <input type="text" class="form-control" name="nome" id="field_nome" data-cy="nome" formControlName="nome" />
         </div>
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="exemploModeloVacinacaoApp.doenca.criado" for="field_criado">Criado</label>
+          <label class="form-label" for="field_criado">Criado</label>
           <div class="d-flex">
             <input
               id="field_criado"
@@ -40,9 +34,7 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="exemploModeloVacinacaoApp.doenca.dataPrimeiroCaso" for="field_dataPrimeiroCaso"
-            >Data Primeiro Caso</label
-          >
+          <label class="form-label" for="field_dataPrimeiroCaso">Data Primeiro Caso</label>
           <div class="input-group">
             <input
               id="field_dataPrimeiroCaso"
@@ -61,9 +53,7 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="exemploModeloVacinacaoApp.doenca.localPrimeiroCaso" for="field_localPrimeiroCaso"
-            >Local Primeiro Caso</label
-          >
+          <label class="form-label" for="field_localPrimeiroCaso">Local Primeiro Caso</label>
           <div class="input-group">
             <input
               id="field_localPrimeiroCaso"
@@ -82,9 +72,7 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="exemploModeloVacinacaoApp.doenca.paisPrimeiroCaso" for="field_paisPrimeiroCaso"
-            >Pais Primeiro Caso</label
-          >
+          <label class="form-label" for="field_paisPrimeiroCaso">Pais Primeiro Caso</label>
           <select
             class="form-control"
             id="field_paisPrimeiroCaso"
@@ -103,7 +91,7 @@
 
       <div>
         <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
-          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancelar</span>
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancelar</span>
         </button>
 
         <button
@@ -113,7 +101,7 @@
           [disabled]="editForm.invalid || isSaving"
           class="btn btn-primary"
         >
-          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Salvar</span>
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Salvar</span>
         </button>
       </div>
     </form>

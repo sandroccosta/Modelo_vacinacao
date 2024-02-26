@@ -3,16 +3,16 @@ import dayjs from 'dayjs/esm';
 import { IPessoa, NewPessoa } from './pessoa.model';
 
 export const sampleWithRequiredData: IPessoa = {
-  id: 9720,
+  id: 26537,
 };
 
 export const sampleWithPartialData: IPessoa = {
-  id: 14471,
+  id: 3877,
 };
 
 export const sampleWithFullData: IPessoa = {
-  id: 32582,
-  nome: 'furthermore yawningly',
+  id: 3997,
+  nome: 'silently wherever',
   dataNascimento: dayjs('2024-02-26'),
 };
 

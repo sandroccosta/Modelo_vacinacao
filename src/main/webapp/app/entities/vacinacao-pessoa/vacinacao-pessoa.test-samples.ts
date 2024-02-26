@@ -3,20 +3,20 @@ import dayjs from 'dayjs/esm';
 import { IVacinacaoPessoa, NewVacinacaoPessoa } from './vacinacao-pessoa.model';
 
 export const sampleWithRequiredData: IVacinacaoPessoa = {
-  id: 21221,
+  id: 9277,
 };
 
 export const sampleWithPartialData: IVacinacaoPessoa = {
-  id: 25353,
+  id: 7892,
   quando: dayjs('2024-02-26'),
-  codigoProfissinal: 'indeed',
+  cns: 'woot disgusting via',
 };
 
 export const sampleWithFullData: IVacinacaoPessoa = {
-  id: 4370,
+  id: 20848,
   quando: dayjs('2024-02-26'),
-  cns: 'concerning',
-  codigoProfissinal: 'unless absent solemnly',
+  cns: 'fascinate',
+  codigoProfissinal: 'from',
 };
 
 export const sampleWithNewData: NewVacinacaoPessoa = {

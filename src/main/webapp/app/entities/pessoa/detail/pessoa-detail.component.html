@@ -2,7 +2,7 @@
   <div class="col-8">
     @if (pessoa) {
       <div>
-        <h2 data-cy="pessoaDetailsHeading"><span jhiTranslate="exemploModeloVacinacaoApp.pessoa.detail.title">Pessoa</span></h2>
+        <h2 data-cy="pessoaDetailsHeading"><span>Pessoa</span></h2>
 
         <hr />
 
@@ -11,26 +11,26 @@
         <jhi-alert></jhi-alert>
 
         <dl class="row-md jh-entity-details">
-          <dt><span jhiTranslate="global.field.id">Código</span></dt>
+          <dt><span>Código</span></dt>
           <dd>
             <span>{{ pessoa.id }}</span>
           </dd>
-          <dt><span jhiTranslate="exemploModeloVacinacaoApp.pessoa.nome">Nome</span></dt>
+          <dt><span>Nome</span></dt>
           <dd>
             <span>{{ pessoa.nome }}</span>
           </dd>
-          <dt><span jhiTranslate="exemploModeloVacinacaoApp.pessoa.dataNascimento">Data Nascimento</span></dt>
+          <dt><span>Data Nascimento</span></dt>
           <dd>
             <span>{{ pessoa.dataNascimento | formatMediumDate }}</span>
           </dd>
         </dl>
 
         <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
-          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Voltar</span>
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Voltar</span>
         </button>
 
         <button type="button" [routerLink]="['/pessoa', pessoa.id, 'edit']" class="btn btn-primary">
-          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Editar</span>
         </button>
       </div>
     }

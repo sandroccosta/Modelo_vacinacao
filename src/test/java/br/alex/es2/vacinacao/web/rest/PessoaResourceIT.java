@@ -253,7 +253,7 @@ class PessoaResourceIT {
         Pessoa partialUpdatedPessoa = new Pessoa();
         partialUpdatedPessoa.setId(pessoa.getId());
 
-        partialUpdatedPessoa.dataNascimento(UPDATED_DATA_NASCIMENTO);
+        partialUpdatedPessoa.nome(UPDATED_NOME);
 
         restPessoaMockMvc
             .perform(
@@ -267,8 +267,8 @@ class PessoaResourceIT {
         List<Pessoa> pessoaList = pessoaRepository.findAll();
         assertThat(pessoaList).hasSize(databaseSizeBeforeUpdate);
         Pessoa testPessoa = pessoaList.get(pessoaList.size() - 1);
-        assertThat(testPessoa.getNome()).isEqualTo(DEFAULT_NOME);
-        assertThat(testPessoa.getDataNascimento()).isEqualTo(UPDATED_DATA_NASCIMENTO);
+        assertThat(testPessoa.getNome()).isEqualTo(UPDATED_NOME);
+        assertThat(testPessoa.getDataNascimento()).isEqualTo(DEFAULT_DATA_NASCIMENTO);
     }
 
     @Test

@@ -251,6 +251,8 @@ class PaisResourceIT {
         Pais partialUpdatedPais = new Pais();
         partialUpdatedPais.setId(pais.getId());
 
+        partialUpdatedPais.nome(UPDATED_NOME).sigla(UPDATED_SIGLA);
+
         restPaisMockMvc
             .perform(
                 patch(ENTITY_API_URL_ID, partialUpdatedPais.getId())
@@ -263,8 +265,8 @@ class PaisResourceIT {
         List<Pais> paisList = paisRepository.findAll();
         assertThat(paisList).hasSize(databaseSizeBeforeUpdate);
         Pais testPais = paisList.get(paisList.size() - 1);
-        assertThat(testPais.getNome()).isEqualTo(DEFAULT_NOME);
-        assertThat(testPais.getSigla()).isEqualTo(DEFAULT_SIGLA);
+        assertThat(testPais.getNome()).isEqualTo(UPDATED_NOME);
+        assertThat(testPais.getSigla()).isEqualTo(UPDATED_SIGLA);
     }
 
     @Test

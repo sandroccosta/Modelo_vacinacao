@@ -1,11 +1,11 @@
 <div>
   <h2 id="page-heading" data-cy="PessoaHeading">
-    <span jhiTranslate="exemploModeloVacinacaoApp.pessoa.home.title">Pessoas</span>
+    <span>Pessoas</span>
 
     <div class="d-flex justify-content-end">
       <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
         <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
-        <span jhiTranslate="exemploModeloVacinacaoApp.pessoa.home.refreshListLabel">Atualizar lista</span>
+        <span>Atualizar lista</span>
       </button>
 
       <button
@@ -15,7 +15,7 @@
         [routerLink]="['/pessoa/new']"
       >
         <fa-icon icon="plus"></fa-icon>
-        <span jhiTranslate="exemploModeloVacinacaoApp.pessoa.home.createLabel">Criar novo Pessoa</span>
+        <span>Criar novo Pessoa</span>
       </button>
     </div>
   </h2>
@@ -26,7 +26,7 @@
 
   @if (pessoas?.length === 0) {
     <div class="alert alert-warning" id="no-result">
-      <span jhiTranslate="exemploModeloVacinacaoApp.pessoa.home.notFound">Nenhum Pessoa encontrado</span>
+      <span>Nenhum Pessoa encontrado</span>
     </div>
   }
 
@@ -37,21 +37,21 @@
           <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
             <th scope="col" jhiSortBy="id">
               <div class="d-flex">
-                <span jhiTranslate="global.field.id">Código</span>
+                <span>Código</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
             <th scope="col" jhiSortBy="nome">
               <div class="d-flex">
-                <span jhiTranslate="exemploModeloVacinacaoApp.pessoa.nome">Nome</span>
+                <span>Nome</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
             <th scope="col" jhiSortBy="dataNascimento">
               <div class="d-flex">
-                <span jhiTranslate="exemploModeloVacinacaoApp.pessoa.dataNascimento">Data Nascimento</span>
+                <span>Data Nascimento</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -71,17 +71,17 @@
                 <div class="btn-group">
                   <a [routerLink]="['/pessoa', pessoa.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
                     <fa-icon icon="eye"></fa-icon>
-                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Visualizar</span>
+                    <span class="d-none d-md-inline">Visualizar</span>
                   </a>
 
                   <a [routerLink]="['/pessoa', pessoa.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
                     <fa-icon icon="pencil-alt"></fa-icon>
-                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editar</span>
+                    <span class="d-none d-md-inline">Editar</span>
                   </a>
 
                   <button type="submit" (click)="delete(pessoa)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
                     <fa-icon icon="times"></fa-icon>
-                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Excluir</span>
+                    <span class="d-none d-md-inline">Excluir</span>
                   </button>
                 </div>
               </td>

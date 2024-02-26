@@ -2,7 +2,7 @@
   <div class="col-8">
     @if (pais) {
       <div>
-        <h2 data-cy="paisDetailsHeading"><span jhiTranslate="exemploModeloVacinacaoApp.pais.detail.title">Pais</span></h2>
+        <h2 data-cy="paisDetailsHeading"><span>Pais</span></h2>
 
         <hr />
 
@@ -11,26 +11,26 @@
         <jhi-alert></jhi-alert>
 
         <dl class="row-md jh-entity-details">
-          <dt><span jhiTranslate="global.field.id">Código</span></dt>
+          <dt><span>Código</span></dt>
           <dd>
             <span>{{ pais.id }}</span>
           </dd>
-          <dt><span jhiTranslate="exemploModeloVacinacaoApp.pais.nome">Nome</span></dt>
+          <dt><span>Nome</span></dt>
           <dd>
             <span>{{ pais.nome }}</span>
           </dd>
-          <dt><span jhiTranslate="exemploModeloVacinacaoApp.pais.sigla">Sigla</span></dt>
+          <dt><span>Sigla</span></dt>
           <dd>
             <span>{{ pais.sigla }}</span>
           </dd>
         </dl>
 
         <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
-          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Voltar</span>
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Voltar</span>
         </button>
 
         <button type="button" [routerLink]="['/pais', pais.id, 'edit']" class="btn btn-primary">
-          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Editar</span>
         </button>
       </div>
     }

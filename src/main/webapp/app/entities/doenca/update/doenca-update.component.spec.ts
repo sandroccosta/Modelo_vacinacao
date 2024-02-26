@@ -50,10 +50,10 @@ describe('Doenca Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call Pais query and add missing value', () => {
       const doenca: IDoenca = { id: 456 };
-      const paisPrimeiroCaso: IPais = { id: 21793 };
+      const paisPrimeiroCaso: IPais = { id: 15387 };
       doenca.paisPrimeiroCaso = paisPrimeiroCaso;
 
-      const paisCollection: IPais[] = [{ id: 19122 }];
+      const paisCollection: IPais[] = [{ id: 13190 }];
       jest.spyOn(paisService, 'query').mockReturnValue(of(new HttpResponse({ body: paisCollection })));
       const additionalPais = [paisPrimeiroCaso];
       const expectedCollection: IPais[] = [...additionalPais, ...paisCollection];
@@ -69,7 +69,7 @@ describe('Doenca Management Update Component', () => {
 
     it('Should update editForm', () => {
       const doenca: IDoenca = { id: 456 };
-      const paisPrimeiroCaso: IPais = { id: 12181 };
+      const paisPrimeiroCaso: IPais = { id: 7254 };
       doenca.paisPrimeiroCaso = paisPrimeiroCaso;
 
       activatedRoute.data = of({ doenca });

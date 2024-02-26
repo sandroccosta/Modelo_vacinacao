@@ -3,17 +3,18 @@ import dayjs from 'dayjs/esm';
 import { IFabricante, NewFabricante } from './fabricante.model';
 
 export const sampleWithRequiredData: IFabricante = {
-  id: 27888,
+  id: 28499,
 };
 
 export const sampleWithPartialData: IFabricante = {
-  id: 4142,
+  id: 11292,
+  nome: 'slide fearful mountainous',
 };
 
 export const sampleWithFullData: IFabricante = {
-  id: 30878,
-  nome: 'fooey like',
-  criado: dayjs('2024-02-26T06:59'),
+  id: 14536,
+  nome: 'unethically from',
+  criado: dayjs('2024-02-26T17:16'),
 };
 
 export const sampleWithNewData: NewFabricante = {

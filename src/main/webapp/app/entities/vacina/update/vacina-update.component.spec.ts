@@ -50,10 +50,10 @@ describe('Vacina Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call Doenca query and add missing value', () => {
       const vacina: IVacina = { id: 456 };
-      const doenca: IDoenca = { id: 14988 };
+      const doenca: IDoenca = { id: 13160 };
       vacina.doenca = doenca;
 
-      const doencaCollection: IDoenca[] = [{ id: 22823 }];
+      const doencaCollection: IDoenca[] = [{ id: 10862 }];
       jest.spyOn(doencaService, 'query').mockReturnValue(of(new HttpResponse({ body: doencaCollection })));
       const additionalDoencas = [doenca];
       const expectedCollection: IDoenca[] = [...additionalDoencas, ...doencaCollection];
@@ -72,7 +72,7 @@ describe('Vacina Management Update Component', () => {
 
     it('Should update editForm', () => {
       const vacina: IVacina = { id: 456 };
-      const doenca: IDoenca = { id: 17959 };
+      const doenca: IDoenca = { id: 22620 };
       vacina.doenca = doenca;
 
       activatedRoute.data = of({ vacina });

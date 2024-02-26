@@ -284,6 +284,8 @@ class FabricanteResourceIT {
         Fabricante partialUpdatedFabricante = new Fabricante();
         partialUpdatedFabricante.setId(fabricante.getId());
 
+        partialUpdatedFabricante.criado(UPDATED_CRIADO);
+
         restFabricanteMockMvc
             .perform(
                 patch(ENTITY_API_URL_ID, partialUpdatedFabricante.getId())
@@ -297,7 +299,7 @@ class FabricanteResourceIT {
         assertThat(fabricanteList).hasSize(databaseSizeBeforeUpdate);
         Fabricante testFabricante = fabricanteList.get(fabricanteList.size() - 1);
         assertThat(testFabricante.getNome()).isEqualTo(DEFAULT_NOME);
-        assertThat(testFabricante.getCriado()).isEqualTo(DEFAULT_CRIADO);
+        assertThat(testFabricante.getCriado()).isEqualTo(UPDATED_CRIADO);
     }
 
     @Test
