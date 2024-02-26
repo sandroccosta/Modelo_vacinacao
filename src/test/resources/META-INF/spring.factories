@@ -1,0 +1,2 @@
+org.springframework.test.context.ContextCustomizerFactory = br.alex.es2.\
+    vacinacao.config.SqlTestContainersSpringContextCustomizerFactory
