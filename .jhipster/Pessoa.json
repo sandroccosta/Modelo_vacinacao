@@ -1,0 +1,20 @@
+{
+  "annotations": {
+    "changelogDate": "20240226194221"
+  },
+  "applications": "*",
+  "entityTableName": "pessoa",
+  "fields": [
+    {
+      "fieldName": "nome",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataNascimento",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "name": "Pessoa",
+  "relationships": [],
+  "searchEngine": "no"
+}

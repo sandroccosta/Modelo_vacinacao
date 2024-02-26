@@ -1,0 +1,36 @@
+{
+  "annotations": {
+    "changelogDate": "20240226194121"
+  },
+  "applications": "*",
+  "entityTableName": "doenca",
+  "fields": [
+    {
+      "fieldName": "nome",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "criado",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "dataPrimeiroCaso",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "localPrimeiroCaso",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "name": "Doenca",
+  "relationships": [
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "pais",
+      "relationshipName": "paisPrimeiroCaso",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

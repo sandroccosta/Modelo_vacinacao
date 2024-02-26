@@ -1,0 +1,46 @@
+{
+  "annotations": {
+    "changelogDate": "20240226194321"
+  },
+  "applications": "*",
+  "entityTableName": "vacinacao_pessoa",
+  "fields": [
+    {
+      "fieldName": "quando",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "cns",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "codigoProfissinal",
+      "fieldType": "String"
+    }
+  ],
+  "name": "VacinacaoPessoa",
+  "relationships": [
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "pessoa",
+      "relationshipName": "pessoa",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "vacina",
+      "relationshipName": "vacina",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "fabricante",
+      "relationshipName": "fabricante",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

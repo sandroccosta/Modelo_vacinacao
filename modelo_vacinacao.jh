@@ -32,37 +32,24 @@ entity VacinacaoPessoa{
 
 
 
-relationship OneToOne {
-	Department{location} to Location
-}
+
 
 relationship ManyToMany {
-	
+
   Fabricante{vacinas(nome)} to Vacina{fabricantes(nome)}
 }
 
-// defining multiple OneToMany relationships with comments
-relationship OneToMany {
-	Employee to Job{employee}
-	/**
-	* A relationship
-	*/
-	Department to
-	/**
-	* Another side of the same relationship
-	*/
-	Employee{department}
-}
+
 
 relationship ManyToOne {
 	VacinacaoPessoa{pessoa(nome)} to Pessoa
     VacinacaoPessoa{vacina(nome)} to Vacina
     VacinacaoPessoa{fabricante(nome)} to Fabricante
-    
+
     Vacina{doenca(nome)} to Doenca
-    
+
     Fabricante{pais(nome)} to Pais
-    
+
     Doenca{paisPrimeiroCaso(nome)} to Pais
 }
 

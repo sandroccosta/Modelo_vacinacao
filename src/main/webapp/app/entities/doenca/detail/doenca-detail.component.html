@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (doenca) {
+      <div>
+        <h2 data-cy="doencaDetailsHeading"><span jhiTranslate="exemploModeloVacinacaoApp.doenca.detail.title">Doenca</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">Código</span></dt>
+          <dd>
+            <span>{{ doenca.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="exemploModeloVacinacaoApp.doenca.nome">Nome</span></dt>
+          <dd>
+            <span>{{ doenca.nome }}</span>
+          </dd>
+          <dt><span jhiTranslate="exemploModeloVacinacaoApp.doenca.criado">Criado</span></dt>
+          <dd>
+            <span>{{ doenca.criado | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="exemploModeloVacinacaoApp.doenca.dataPrimeiroCaso">Data Primeiro Caso</span></dt>
+          <dd>
+            <span>{{ doenca.dataPrimeiroCaso | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="exemploModeloVacinacaoApp.doenca.localPrimeiroCaso">Local Primeiro Caso</span></dt>
+          <dd>
+            <span>{{ doenca.localPrimeiroCaso | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="exemploModeloVacinacaoApp.doenca.paisPrimeiroCaso">Pais Primeiro Caso</span></dt>
+          <dd>
+            @if (doenca.paisPrimeiroCaso) {
+              <div>
+                <a [routerLink]="['/pais', doenca.paisPrimeiroCaso.id, 'view']">{{ doenca.paisPrimeiroCaso.nome }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Voltar</span>
+        </button>
+
+        <button type="button" [routerLink]="['/doenca', doenca.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

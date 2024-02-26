@@ -1,0 +1,20 @@
+{
+  "annotations": {
+    "changelogDate": "20240226193821"
+  },
+  "applications": "*",
+  "entityTableName": "pais",
+  "fields": [
+    {
+      "fieldName": "nome",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sigla",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Pais",
+  "relationships": [],
+  "searchEngine": "no"
+}

@@ -1,0 +1,123 @@
+<div>
+  <h2 id="page-heading" data-cy="DoencaHeading">
+    <span jhiTranslate="exemploModeloVacinacaoApp.doenca.home.title">Doencas</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="exemploModeloVacinacaoApp.doenca.home.refreshListLabel">Atualizar lista</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-doenca"
+        [routerLink]="['/doenca/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="exemploModeloVacinacaoApp.doenca.home.createLabel">Criar novo Doenca</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (doencas?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="exemploModeloVacinacaoApp.doenca.home.notFound">Nenhum Doenca encontrado</span>
+    </div>
+  }
+
+  @if (doencas && doencas.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">Código</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="nome">
+              <div class="d-flex">
+                <span jhiTranslate="exemploModeloVacinacaoApp.doenca.nome">Nome</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="criado">
+              <div class="d-flex">
+                <span jhiTranslate="exemploModeloVacinacaoApp.doenca.criado">Criado</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="dataPrimeiroCaso">
+              <div class="d-flex">
+                <span jhiTranslate="exemploModeloVacinacaoApp.doenca.dataPrimeiroCaso">Data Primeiro Caso</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="localPrimeiroCaso">
+              <div class="d-flex">
+                <span jhiTranslate="exemploModeloVacinacaoApp.doenca.localPrimeiroCaso">Local Primeiro Caso</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="paisPrimeiroCaso.nome">
+              <div class="d-flex">
+                <span jhiTranslate="exemploModeloVacinacaoApp.doenca.paisPrimeiroCaso">Pais Primeiro Caso</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (doenca of doencas; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/doenca', doenca.id, 'view']">{{ doenca.id }}</a>
+              </td>
+              <td>{{ doenca.nome }}</td>
+              <td>{{ doenca.criado | formatMediumDatetime }}</td>
+              <td>{{ doenca.dataPrimeiroCaso | formatMediumDate }}</td>
+              <td>{{ doenca.localPrimeiroCaso | formatMediumDate }}</td>
+              <td>
+                @if (doenca.paisPrimeiroCaso) {
+                  <div>
+                    <a [routerLink]="['/pais', doenca.paisPrimeiroCaso.id, 'view']">{{ doenca.paisPrimeiroCaso.nome }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/doenca', doenca.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Visualizar</span>
+                  </a>
+
+                  <a [routerLink]="['/doenca', doenca.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editar</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(doenca)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Excluir</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

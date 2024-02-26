@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (vacina) {
+      <div>
+        <h2 data-cy="vacinaDetailsHeading"><span jhiTranslate="exemploModeloVacinacaoApp.vacina.detail.title">Vacina</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">Código</span></dt>
+          <dd>
+            <span>{{ vacina.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="exemploModeloVacinacaoApp.vacina.nome">Nome</span></dt>
+          <dd>
+            <span>{{ vacina.nome }}</span>
+          </dd>
+          <dt><span jhiTranslate="exemploModeloVacinacaoApp.vacina.criado">Criado</span></dt>
+          <dd>
+            <span>{{ vacina.criado | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="exemploModeloVacinacaoApp.vacina.doenca">Doenca</span></dt>
+          <dd>
+            @if (vacina.doenca) {
+              <div>
+                <a [routerLink]="['/doenca', vacina.doenca.id, 'view']">{{ vacina.doenca.nome }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Voltar</span>
+        </button>
+
+        <button type="button" [routerLink]="['/vacina', vacina.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

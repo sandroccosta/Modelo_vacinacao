@@ -1,0 +1,36 @@
+{
+  "annotations": {
+    "changelogDate": "20240226193921"
+  },
+  "applications": "*",
+  "entityTableName": "fabricante",
+  "fields": [
+    {
+      "fieldName": "nome",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "criado",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "name": "Fabricante",
+  "relationships": [
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "pais",
+      "relationshipName": "pais",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "vacina",
+      "otherEntityRelationshipName": "fabricantes",
+      "relationshipName": "vacinas",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}

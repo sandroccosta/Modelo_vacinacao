@@ -1,0 +1,149 @@
+<div>
+  <h2 id="page-heading" data-cy="VacinacaoPessoaHeading">
+    <span jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.home.title">Vacinacao Pessoas</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.home.refreshListLabel">Atualizar lista</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-vacinacao-pessoa"
+        [routerLink]="['/vacinacao-pessoa/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.home.createLabel">Criar novo Vacinacao Pessoa</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (vacinacaoPessoas?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.home.notFound">Nenhum Vacinacao Pessoa encontrado</span>
+    </div>
+  }
+
+  @if (vacinacaoPessoas && vacinacaoPessoas.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">Código</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="quando">
+              <div class="d-flex">
+                <span jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.quando">Quando</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="cns">
+              <div class="d-flex">
+                <span jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.cns">Cns</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="codigoProfissinal">
+              <div class="d-flex">
+                <span jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.codigoProfissinal">Codigo Profissinal</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="pessoa.nome">
+              <div class="d-flex">
+                <span jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.pessoa">Pessoa</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="vacina.nome">
+              <div class="d-flex">
+                <span jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.vacina">Vacina</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="fabricante.nome">
+              <div class="d-flex">
+                <span jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.fabricante">Fabricante</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (vacinacaoPessoa of vacinacaoPessoas; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/vacinacao-pessoa', vacinacaoPessoa.id, 'view']">{{ vacinacaoPessoa.id }}</a>
+              </td>
+              <td>{{ vacinacaoPessoa.quando | formatMediumDate }}</td>
+              <td>{{ vacinacaoPessoa.cns }}</td>
+              <td>{{ vacinacaoPessoa.codigoProfissinal }}</td>
+              <td>
+                @if (vacinacaoPessoa.pessoa) {
+                  <div>
+                    <a [routerLink]="['/pessoa', vacinacaoPessoa.pessoa.id, 'view']">{{ vacinacaoPessoa.pessoa.nome }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (vacinacaoPessoa.vacina) {
+                  <div>
+                    <a [routerLink]="['/vacina', vacinacaoPessoa.vacina.id, 'view']">{{ vacinacaoPessoa.vacina.nome }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (vacinacaoPessoa.fabricante) {
+                  <div>
+                    <a [routerLink]="['/fabricante', vacinacaoPessoa.fabricante.id, 'view']">{{ vacinacaoPessoa.fabricante.nome }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/vacinacao-pessoa', vacinacaoPessoa.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Visualizar</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/vacinacao-pessoa', vacinacaoPessoa.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editar</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(vacinacaoPessoa)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Excluir</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

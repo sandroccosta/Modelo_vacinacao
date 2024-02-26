@@ -1,0 +1,129 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-vacinacao-pessoa-heading"
+        data-cy="VacinacaoPessoaCreateUpdateHeading"
+        jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.home.createOrEditLabel"
+      >
+        Criar ou editar Vacinacao Pessoa
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.quando" for="field_quando">Quando</label>
+          <div class="input-group">
+            <input
+              id="field_quando"
+              data-cy="quando"
+              type="text"
+              class="form-control"
+              name="quando"
+              ngbDatepicker
+              #quandoDp="ngbDatepicker"
+              formControlName="quando"
+            />
+            <button type="button" class="btn btn-secondary" (click)="quandoDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.cns" for="field_cns">Cns</label>
+          <input type="text" class="form-control" name="cns" id="field_cns" data-cy="cns" formControlName="cns" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.codigoProfissinal" for="field_codigoProfissinal"
+            >Codigo Profissinal</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="codigoProfissinal"
+            id="field_codigoProfissinal"
+            data-cy="codigoProfissinal"
+            formControlName="codigoProfissinal"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.pessoa" for="field_pessoa">Pessoa</label>
+          <select
+            class="form-control"
+            id="field_pessoa"
+            data-cy="pessoa"
+            name="pessoa"
+            formControlName="pessoa"
+            [compareWith]="comparePessoa"
+          >
+            <option [ngValue]="null"></option>
+            @for (pessoaOption of pessoasSharedCollection; track $index) {
+              <option [ngValue]="pessoaOption">{{ pessoaOption.nome }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.vacina" for="field_vacina">Vacina</label>
+          <select
+            class="form-control"
+            id="field_vacina"
+            data-cy="vacina"
+            name="vacina"
+            formControlName="vacina"
+            [compareWith]="compareVacina"
+          >
+            <option [ngValue]="null"></option>
+            @for (vacinaOption of vacinasSharedCollection; track $index) {
+              <option [ngValue]="vacinaOption">{{ vacinaOption.nome }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="exemploModeloVacinacaoApp.vacinacaoPessoa.fabricante" for="field_fabricante"
+            >Fabricante</label
+          >
+          <select
+            class="form-control"
+            id="field_fabricante"
+            data-cy="fabricante"
+            name="fabricante"
+            formControlName="fabricante"
+            [compareWith]="compareFabricante"
+          >
+            <option [ngValue]="null"></option>
+            @for (fabricanteOption of fabricantesSharedCollection; track $index) {
+              <option [ngValue]="fabricanteOption">{{ fabricanteOption.nome }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancelar</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Salvar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

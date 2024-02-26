@@ -17,7 +17,17 @@
     <property name="datetimeType" value="datetime" dbms="postgresql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240226193821_added_entity_Pais.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240226193921_added_entity_Fabricante.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240226194021_added_entity_Vacina.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240226194121_added_entity_Doenca.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240226194221_added_entity_Pessoa.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240226194321_added_entity_VacinacaoPessoa.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20240226193921_added_entity_constraints_Fabricante.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240226194021_added_entity_constraints_Vacina.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240226194121_added_entity_constraints_Doenca.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240226194321_added_entity_constraints_VacinacaoPessoa.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>
